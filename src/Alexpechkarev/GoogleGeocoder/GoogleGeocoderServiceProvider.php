@@ -35,9 +35,11 @@ class GoogleGeocoderServiceProvider extends ServiceProvider {
     {
         $this->app['GoogleGeocoder'] = $this->app->share(function($app)
         {
+            $this->app['config']->package('alexpechkarev/google-geocoder');
+
             $config = array();
-            $config['applicationKey']   = Config::get('google-geocoder.applicationKey');
-            $config['requestUrl']       = Config::get('google-geocoder.requestUrl');
+            $config['applicationKey']   = Config::get('google-geocoder::config.applicationKey');
+            $config['requestUrl']       = Config::get('google-geocoder::config.requestUrl');
 
             // Throw an error if request URL is empty
             if (empty($config['requestUrl'])) {
