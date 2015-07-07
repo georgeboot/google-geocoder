@@ -35,7 +35,7 @@ class GoogleGeocoderServiceProvider extends ServiceProvider {
     {
         $this->app['GoogleGeocoder'] = $this->app->share(function($app)
         {
-            $this->app['config']->package('alexpechkarev/google-geocoder');
+            $this->app['config']->package('alexpechkarev/google-geocoder', __DIR__ . '/config');
 
             $config = array();
             $config['applicationKey']   = Config::get('google-geocoder::config.applicationKey');
